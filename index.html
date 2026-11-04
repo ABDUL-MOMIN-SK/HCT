@@ -319,7 +319,7 @@ section,footer,header,nav{max-width:100vw}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tr" viewBox="0 0 64 64"><path d="M19 7h26v15c0 10-5.5 17-13 17S19 32 19 22z" fill="currentColor"/><path d="M19 11H9c0 10 4 15 11 17M45 11h10c0 10-4 15-11 17" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M29 38h6v9h-6z" fill="currentColor"/><path d="M23 47h18l2 6H21z" fill="currentColor"/><path d="M17 53h30v5H17z" fill="currentColor" opacity=".8"/><path d="M25 13c0 8 2 14 6 18" stroke="#fff" stroke-opacity=".45" stroke-width="2.5" fill="none" stroke-linecap="round"/></symbol><symbol id="sb" viewBox="0 0 64 64"><circle cx="28" cy="11" r="6" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 19l-2 20M26 39l-8 17M26 39l10 17M28 24l11 7"/><path d="M39 31l12 21" stroke-width="7"/></g><circle cx="12" cy="22" r="3.5" fill="#c1121f"/></symbol><symbol id="sw" viewBox="0 0 64 64"><circle cx="28" cy="13" r="6" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 21v18M29 25l12-17M28 26l-11 8M28 39l-11 11-2 8M28 39l14 11 4 8"/></g><circle cx="44" cy="6" r="4" fill="#c1121f"/></symbol><symbol id="ss" viewBox="0 0 64 64"><polygon points="32,5 39.5,24 59,25 44,38 49.5,58 32,47 14.5,58 20,38 5,25 24.5,24" fill="currentColor"/></symbol><symbol id="sm" viewBox="0 0 64 64"><path d="M21 5l10 23M43 5l-10 23" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" fill="none"/><circle cx="32" cy="42" r="16" fill="currentColor"/><polygon points="32,32 35,39 42,39.5 36.5,44 38.5,51 32,47 25.5,51 27.5,44 22,39.5 29,39" fill="#fff" fill-opacity=".92"/></symbol></svg>
 <nav><div class="w"><a class="brand" href="#top">HT15 · Season 2</a>
 <button class="mb" id="mb" aria-label="Menu" aria-expanded="false">☰</button>
-<div class="links" id="lk"><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#rules">Rules</a><a href="#fixtures">Fixtures</a><a href="#venue">Venue</a><a href="#faq">FAQ</a><a href="#live">Live App</a><a href="#contact">Contact</a><a class="cta" href="#register">Register</a></div></div></nav>
+<div class="links" id="lk"><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#rules">Rules</a><a href="#fixtures">Fixtures</a><a href="#venue">Venue</a><a href="#faq">FAQ</a><a href="#live">Live App</a><a href="#contact">Contact</a><a href="HT15_Season2_Brochure.pdf" download="HT15_Season2_Brochure.pdf">Download Brochure</a><a class="cta" href="#register">Register</a></div></div></nav>
 
 <header class="hero" id="top"><div class="w">
 <div class="eb">Youngstar Club Hatsingimari presents</div>
@@ -495,11 +495,20 @@ var f=document.getElementById('f'),msg=document.getElementById('msg');
 f.addEventListener('submit',async function(e){
 e.preventDefault();
 var d=Object.fromEntries(new FormData(f).entries());
+d['Team Name']=d['Team Name']||d['team']||'';
+d['Team Type']=d['Team Type']||d['type']||'';
+d['Area']=d['Area']||d['area']||'';
+d['Village']=d['Village']||d['village']||'';
+d['Captain']=d['Captain']||d['captain']||'';
+d['Phone']=d['Phone']||d['phone']||'';
+d['Vice Captain']=d['Vice Captain']||d['vice']||'';
+d['Overseas Players']=d['Overseas Players']||d['os']||'';
+d['Remarks']=d['Remarks']||d['remarks']||'';
 d.time=new Date().toISOString();
-var t='HT15 Season 2 – Team Registration%0A'+['team','type','area','village','captain','phone','vice','os','remarks'].map(function(k){return k+': '+encodeURIComponent(d[k]||'-')}).join('%0A');
+var t='HT15 Season 2 – Team Registration%0A'+['Team Name','Team Type','Area','Village','Captain','Phone','Vice Captain','Overseas Players','Remarks'].map(function(k){return k+': '+encodeURIComponent(d[k]||'-')}).join('%0A');
 document.getElementById('wa').href='https://wa.me/918134847626?text='+t;
 var saved=false;
-if(SHEET_WEB_APP_URL&&SHEET_WEB_APP_URL!=='https://script.google.com/macros/s/AKfycbzPPFTl4_j0Gk6L3668lNBoBmjbPsKGMiIjY8Aht6pU5sGFtuBhy4f3S4ki53lWm6NgyA/exec'){
+if(SHEET_WEB_APP_URL&&SHEET_WEB_APP_URL!=='PASTE_YOUR_WEB_APP_URL_HERE'){
 try{
 var payload=new URLSearchParams(d);
 // omit cookies: Apps Script returns 400 when multiple Google accounts are signed in
