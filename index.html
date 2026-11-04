@@ -11,7 +11,8 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1126;--bg2:#0e1733;--card:#111b3b;--ink:#eef2fb;--mut:#a3b0d0;--navy:#dbe4fa;--gold:#d4b062;--line:#243360}}
 :root[data-theme="dark"]{--bg:#0a1126;--bg2:#0e1733;--card:#111b3b;--ink:#eef2fb;--mut:#a3b0d0;--navy:#dbe4fa;--gold:#d4b062;--line:#243360}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:70px;scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 h1,h2,h3,.s{font-family:Rajdhani,Inter,sans-serif;font-weight:700}
 .w{max-width:1000px;margin:0 auto;padding:0 24px}
@@ -303,6 +304,27 @@ input:focus,select:focus,textarea:focus{transform:translateY(-1px)}
 .lg{background:#fff;border:1px solid var(--line);border-radius:10px;aspect-ratio:3/2;display:grid;place-items:center;padding:16px;overflow:hidden;color:#8a95b2;font-size:.85rem;font-style:italic;box-shadow:0 6px 18px rgba(15,35,80,.06)}
 .lg img{display:block;width:100%;height:100%;object-fit:contain;max-width:100%;max-height:100%}
 @media(min-width:821px){.lgs{grid-template-columns:repeat(4,1fr);gap:18px}}
+.tier{display:grid;gap:14px;grid-template-columns:1fr 1fr;max-width:860px;margin:0 auto}
+.tier>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 12px;text-align:center}
+.tier .t1{grid-column:1/-1;display:flex;align-items:center;gap:18px;padding:18px 22px;text-align:left;border:1.5px dashed var(--gold)}
+.slo{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 8px;border:1.5px dashed var(--line);border-radius:50%;font:600 .58rem Orbitron,Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);flex:none}
+.t1 .slo{width:74px;height:74px;margin:0}
+.sps small{display:block;font:600 .64rem Orbitron,Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.sps b{display:block;font:700 1.2rem/1.2 Rajdhani,Inter,sans-serif;color:var(--navy);margin-top:3px}
+.t1 b{font-size:1.7rem}
+.sps p{margin:4px 0 0;font-size:.88rem;color:var(--mut)}
+.pt{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
+.pt>a,.pt>div{display:block;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:10px;padding:16px 10px;text-align:center;text-decoration:none}
+.pt>.on{border-top-color:#00e5ff}
+.pt img{display:block;width:56px;height:56px;margin:0 auto 8px}
+.pt i{display:block;font-style:normal;font-size:.8rem;color:var(--mut);margin-top:2px}
+.more{max-width:860px;margin:24px auto 0;padding:0;border:0;text-align:center}
+.more summary{display:inline-flex;gap:10px;padding:10px 22px;border:1px solid var(--gold);border-radius:99px;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase}
+.more[open] summary{margin-bottom:6px}
+.more .lg{aspect-ratio:auto;height:72px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.chips span{padding:8px 16px;border:1px dashed var(--line);border-radius:99px;font-size:.85rem;font-style:italic;color:var(--mut)}
+@media(min-width:821px){.tier{grid-template-columns:2fr 1fr 1fr}.tier .t1{grid-column:auto}.pt{grid-template-columns:repeat(4,1fr)}}
 
 .ri ul{grid-column:2;list-style:none;margin:6px 0 0;padding:0}
 .ri li{position:relative;padding-left:18px;margin:6px 0;color:var(--mut);font-size:.95rem;line-height:1.55}
@@ -496,7 +518,7 @@ i.addEventListener('click',done);setTimeout(done,2500)})();</script>
 </svg>
 <nav><div class="w"><a class="brand" href="#top">HT15 · Season 2</a>
 <button class="mb" id="mb" aria-label="Menu" aria-expanded="false">☰</button>
-<div class="links" id="lk"><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#rules">Rules</a><a href="#fixtures">Fixtures</a><a href="#venue">Venue</a><a href="#faq">FAQ</a><a href="#live">Live App</a><a href="#contact">Contact</a><a href="HT15_Season2_Brochure.pdf" download="HT15_Season2_Brochure.pdf">Download Brochure</a><a class="cta" href="#register">Register</a></div></div></nav>
+<div class="links" id="lk"><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#rules">Rules</a><a href="#fixtures">Fixtures</a><a href="#venue">Venue</a><a href="#faq">FAQ</a><a href="#live">Live App</a><a href="#contact">Contact</a><a href="brochure.html">View Brochure</a><a class="cta" href="#register">Register</a></div></div></nav>
 
 <header class="hero" id="top"><canvas class="fx" id="fx" aria-hidden="true"></canvas><div class="lamp l" aria-hidden="true"></div><div class="lamp r" aria-hidden="true"></div>
 <div class="tick" aria-hidden="true"><div class="tk-l"><i></i>Updates</div><div class="tk-w"><div class="tk-m"><span>HT15 <b>Season 2</b></span><span>Registration closes <b>16 Nov 2026</b></span><span>First ball <b>20 Nov 2026</b></span><span>Champion <b>₹80,000 + Trophy</b></span><span>Runners-up <b>₹40,000 + Trophy</b></span><span><b>15 Overs</b> · Red Ball · Knockout</span><span>Entry <b>₹5,555</b> per team</span><span>Hatsingimari College Playground</span><span>Play Fair · Respect All · Enjoy the Game</span><span>HT15 <b>Season 2</b></span><span>Registration closes <b>16 Nov 2026</b></span><span>First ball <b>20 Nov 2026</b></span><span>Champion <b>₹80,000 + Trophy</b></span><span>Runners-up <b>₹40,000 + Trophy</b></span><span><b>15 Overs</b> · Red Ball · Knockout</span><span>Entry <b>₹5,555</b> per team</span><span>Hatsingimari College Playground</span><span>Play Fair · Respect All · Enjoy the Game</span></div></div></div><div class="hgrid" aria-hidden="true"></div><div class="scan" aria-hidden="true"></div><div class="w">
@@ -617,8 +639,38 @@ i.addEventListener('click',done);setTimeout(done,2500)})();</script>
 </div></section>
 
 <section id="sponsors" class="alt"><div class="w">
-<div class="hd"><div class="eb">Our partners</div><h2>Sponsors</h2><div class="rule"></div></div>
-<div class="lgs"><div class="lg"><span>Sponsor logo</span></div><div class="lg"><span>Sponsor logo</span></div><div class="lg"><span>Sponsor logo</span></div><div class="lg"><span>Sponsor logo</span></div></div><p class="sub">Interested in sponsoring HT15? Call <a href="tel:+918134847626" style="color:inherit;font:inherit;text-decoration:none">+91 81348 47626</a>.</p>
+<div class="hd"><div class="eb">Our partners</div><h2>Sponsors &amp; Partners</h2><div class="rule"></div></div>
+<div class="sps">
+<div class="tier">
+<div class="t1"><span class="slo">Logo</span><div><small>Title Sponsor</small><b>Your brand here</b><p>Name on the trophy, banners, jerseys and live stream.</p></div></div>
+<div><span class="slo">Logo</span><small>Powered by</small><b>Sponsor name</b></div>
+<div><span class="slo">Logo</span><small>Co-Sponsor</small><b>Sponsor name</b></div>
+</div>
+<div class="mini">Official Partners</div>
+<div class="pt">
+<a class="on" href="https://aarohanhsm.com/" target="_blank" rel="noopener"><img src="Aarohan_Logo.png" alt="Aarohan Coaching of Excellence logo" loading="lazy"><small>Educational Partner</small><b>Aarohan Coaching of Excellence</b><i>aarohanhsm.com</i></a>
+<div><span class="slo">Logo</span><small>Media Partner</small><b>Partner name</b><i>News &amp; coverage</i></div>
+<div><span class="slo">Logo</span><small>Medical Partner</small><b>Partner name</b><i>First aid &amp; ambulance</i></div>
+<div><span class="slo">Logo</span><small>Live Streaming Partner</small><b>Partner name</b><i>Match broadcast</i></div>
+</div>
+<details class="more"><summary>View all partners</summary>
+<div class="pt">
+<div><span class="slo">Logo</span><small>Hospitality Partner</small><b>Partner name</b><i>Teams &amp; officials</i></div>
+<div><span class="slo">Logo</span><small>F&amp;B Partner</small><b>Partner name</b><i>Food &amp; refreshments</i></div>
+<div><span class="slo">Logo</span><small>Hydration Partner</small><b>Partner name</b><i>Drinking water</i></div>
+<div><span class="slo">Logo</span><small>Apparel Partner</small><b>Partner name</b><i>Jerseys &amp; kits</i></div>
+<div><span class="slo">Logo</span><small>Equipment Partner</small><b>Partner name</b><i>Balls &amp; gear</i></div>
+<div><span class="slo">Logo</span><small>Trophy Partner</small><b>Partner name</b><i>Trophies &amp; medals</i></div>
+<div><span class="slo">Logo</span><small>Digital Partner</small><b>Partner name</b><i>Social media &amp; app</i></div>
+<div><span class="slo">Logo</span><small>Travel Partner</small><b>Partner name</b><i>Team transport</i></div>
+</div>
+<div class="mini">Associate Sponsors</div>
+<div class="lgs"><div class="lg"><span>Sponsor logo</span></div><div class="lg"><span>Sponsor logo</span></div><div class="lg"><span>Sponsor logo</span></div><div class="lg"><span>Sponsor logo</span></div></div>
+<div class="mini">Supported By</div>
+<div class="chips"><span>Well-wisher</span><span>Well-wisher</span><span>Well-wisher</span><span>Well-wisher</span></div>
+</details>
+</div>
+<p class="sub">Interested in sponsoring HT15? Call <a href="tel:+918134847626" style="color:inherit;font:inherit;text-decoration:none">+91 81348 47626</a>.</p>
 </div></section>
 
 <section id="committee"><div class="w">
@@ -664,7 +716,7 @@ i.addEventListener('click',done);setTimeout(done,2500)})();</script>
 <div class="ft-brand">HT<em>15</em></div>
 <div class="ft-sub">Cricket Tournament · Season 2</div>
 <b>Youngstar Club Hatsingimari</b>
-<div class="ft-links"><a href="#schedule">Schedule</a><a href="#rules">Rules</a><a href="#register">Register</a><a href="HT15_Season2_Brochure.pdf" download="HT15_Season2_Brochure.pdf">Brochure</a></div>
+<div class="ft-links"><a href="#schedule">Schedule</a><a href="#rules">Rules</a><a href="#register">Register</a><a href="brochure.html">Brochure</a></div>
 <div class="ft-ph"><a href="tel:6003631097">60036 31097</a><a href="tel:8638035149">86380 35149</a></div>
 <p class="ft-tag">Play Fair · Respect All · Enjoy the Game</p>
 <div class="ft-dev"><small>Groundsman · Digital Pitch</small><p>This website's pitch was rolled, marked and prepared by</p><strong>Abdul Momin Sk <em>(Ashik)</em></strong><p>Need a website for your club, tournament or business? Bowl him a message.</p><div class="ft-dc"><a href="tel:+918134847626">+91 81348 47626</a><a href="mailto:abdulmomin701@gmail.com">abdulmomin701@gmail.com</a></div></div>
