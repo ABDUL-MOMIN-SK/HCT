@@ -183,7 +183,22 @@ select{max-width:100%;text-overflow:ellipsis}
 select{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;min-width:0;padding-right:40px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23b8923a' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 .two>label{min-width:0}
 form,.two{max-width:100%}
-select option{white-space:normal}
+select option{white-space:normal;background:var(--card);color:var(--ink)}
+select option:checked{background:#0b1a40;color:#e8c878}
+@supports (appearance:base-select){
+select,::picker(select){appearance:base-select}
+select{display:flex;align-items:center;padding-right:14px;background-image:none;cursor:pointer}
+select::picker-icon{content:"";width:12px;height:8px;margin-left:auto;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23b8923a' stroke-width='2'/%3E%3C/svg%3E") no-repeat center;transition:transform .25s}
+select:open::picker-icon{transform:rotate(180deg)}
+select:open{border-color:#00b8d4;box-shadow:0 0 0 3px rgba(0,229,255,.18),0 0 18px rgba(0,229,255,.2)}
+::picker(select){margin-top:6px;padding:6px;border:1px solid rgba(0,229,255,.35);border-radius:10px;background:var(--card);box-shadow:0 18px 40px rgba(8,18,46,.25),0 0 18px rgba(0,229,255,.15)}
+select option{padding:10px 12px;border-radius:0;background:transparent;font-size:.95rem;transition:background .15s}
+select option:not(:last-child){border-bottom:1px solid var(--line)}
+select option:hover,select option:focus-visible{background:rgba(0,229,255,.1);outline:none}
+select option:checked{background:linear-gradient(90deg,rgba(184,146,58,.2),rgba(0,229,255,.08));color:var(--navy);font-weight:600}
+select option::checkmark{color:var(--gold)}
+select option[value=""]{display:none}
+}
 
 @media(max-width:820px){
 .mb{border:0;background:transparent;font-size:1.5rem;width:44px;height:44px;color:var(--navy)}
